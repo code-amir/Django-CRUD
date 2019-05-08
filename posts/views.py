@@ -24,7 +24,10 @@ def home(request):
 @login_required
 def createPost(request):
 	if(request.method=="POST"):
-		form = PostForm(request.POST)
+		postForm = post()
+		postForm.user = request.user
+		print(request.user)
+		form = PostForm(request.POST,instance = postForm)
 		if form.is_valid():
 			form.save()
 		return render(request,'posts/home.html')
@@ -37,4 +40,6 @@ def createPost(request):
 
 @login_required
 def listPost(request):
-	return render(request,"posts/home.html")
+	user = request.user
+	lstRequest = list(post.objects.filter())
+	return render(request,"posts/listPost.html",{'lstRequest': lstRequest})
