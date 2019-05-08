@@ -1,0 +1,13 @@
+{% extends "baseLayout.html" %}
+{% load staticfiles %}
+{% block content %}
+<div class="jumbotron">
+ <form method="POST">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<input type="button" name="submit" value="Submit">
+	</form>
+  {% endif %}
+
+</div>
+{% endblock %}
