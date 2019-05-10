@@ -11,10 +11,9 @@
 	      </tr>
 	    </thead>
 	    <tbody>
-
 	      {% for request in lstRequest %}
 		      <tr>
-		        <td>{{ request.title }}
+		        <td><a href="{% url 'posts:detail' request.id %}">{{ request.title }}</a></td>
 		        <td>{{ request.description }}</td>
 		      </tr>
 	      {% endfor %}

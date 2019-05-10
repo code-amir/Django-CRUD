@@ -1,5 +1,6 @@
 {% extends "baseLayout.html" %}
 {% load staticfiles %}
+{% load bootstrap3 %}
 {% block content %}
 <div class="jumbotron">
   {% if registered %}
@@ -9,8 +10,8 @@
     <h1>Register Here!!</h1>
     <form class="" method="post" enctype="multipart/form-data">
       {% csrf_token %}
-      {{ user_form.as_p }}
-      {{ profile_form.as_p }}
+      {% bootstrap_form user_form %}
+      {% bootstrap_form profile_form %}
       <input type="submit" name="" value="Register">
 
     </form>

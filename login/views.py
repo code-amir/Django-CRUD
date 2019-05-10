@@ -5,12 +5,12 @@ from login.models import UserProfileInfo
 from django import forms
 from django.contrib.auth import authenticate,login,logout
 from django.http import HttpResponseRedirect, HttpResponse
-from django.urls import reverse    
+from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def index(request):
-    return render(request,'Login/index.html')
+    return render(request,'login/index.html')
 
 @login_required
 def special(request):
@@ -54,7 +54,7 @@ def register(request):
     else:
         user_form = UserForm()
         profile_form = UserProfileInfoForm()
-    return render(request,'Login/register.html',{
+    return render(request,'login/register.html',{
             'user_form':user_form,
             'profile_form':profile_form,
             'registered':registered,
@@ -82,4 +82,4 @@ def user_login(request):
             return HttpResponse("Invalid login Details")
 
     else:
-        return render(request,'Login/login.html')
+        return render(request,'login/login.html')

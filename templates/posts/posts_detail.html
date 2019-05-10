@@ -1,0 +1,14 @@
+{% extends "baseLayout.html" %}
+{% load staticfiles %}
+{% block content %}
+
+<div class="jumbotron">
+    <h1>Welcome to the Post Detail Page</h1>
+    <h2>post Details:</h2>
+    <p>Id_num: {{post_dt.id}}</p>
+    <p>Name: {{post_dt.title}}</p>
+    <p>Description: {{post_dt.description}}</p>
+    <a href="{% url 'posts:update' post_dt.id %}">Update</a>
+    <a href="{% url 'posts:delete' post_dt.id %}">Delete</a>
+
+{% endblock %}

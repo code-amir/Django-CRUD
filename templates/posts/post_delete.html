@@ -1,0 +1,13 @@
+{% extends "baseLayout.html" %}
+{% load staticfiles %}
+{% block content %}
+
+<div class="jumbotron">
+  <form class=""  method="post">
+    {% csrf_token %}
+    Are you sure want to delete it?
+    <input type="submit" value="submit">
+    </form>
+
+
+{% endblock %}
